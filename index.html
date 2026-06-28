@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Salman Khan | AI Software Engineer</title>
+    <meta name="description" content="Portfolio of Salman Khan — AI Software Engineer building and deploying machine learning, NLP, and computer-vision systems end-to-end, from model to production API and full-stack interface." />
+    <meta name="keywords" content="Salman Khan, AI Software Engineer, AI Engineer, Machine Learning Engineer, NLP Engineer, Computer Vision, React Developer, Python Developer, Pakistan" />
+    <meta name="author" content="Salman Khan" />
+    <link rel="canonical" href="https://salmankhan-portfolio.vercel.app/" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Salman Khan | AI Software Engineer" />
+    <meta property="og:description" content="AI Software Engineer building machine learning systems, NLP pipelines, and production-ready full-stack applications." />
+    <meta property="og:url" content="https://salmankhan-portfolio.vercel.app/" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Salman Khan | AI Software Engineer" />
+    <meta name="twitter:description" content="AI Software Engineer building machine learning systems, NLP pipelines, and production-ready full-stack applications." />
+
+    <meta name="theme-color" content="#08090f" />
+
+    <script>
+      (function () {
+        try {
+          var saved = localStorage.getItem("theme");
+          var theme = saved === "light" || saved === "dark"
+            ? saved
+            : (window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark");
+          document.documentElement.setAttribute("data-theme", theme);
+        } catch (e) {
+          document.documentElement.setAttribute("data-theme", "dark");
+        }
+      })();
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Salman Khan",
+      "jobTitle": "AI Software Engineer",
+      "email": "mailto:salmank.official751@gmail.com",
+      "sameAs": [
+        "https://www.linkedin.com/in/salman-khan-ai-software-engineer/",
+        "https://github.com/Salman-Khan751"
+      ],
+      "alumniOf": {
+        "@type": "CollegeOrUniversity",
+        "name": "PMAS Arid Agriculture University, Rawalpindi"
+      }
+    }
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

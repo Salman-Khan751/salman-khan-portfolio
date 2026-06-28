@@ -1,0 +1,65 @@
+.resume-section {
+  background: var(--bg-soft);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.resume-inner {
+  text-align: left;
+}
+
+.resume-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.resume-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 22px;
+  transition: border-color 0.2s var(--ease-out), background 0.2s var(--ease-out);
+}
+
+.resume-card:hover {
+  border-color: var(--accent-dim);
+  background: var(--surface-hi);
+}
+
+.resume-card-icon {
+  font-size: 1.6rem;
+  color: var(--accent);
+  flex-shrink: 0;
+}
+
+.resume-card-text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+}
+
+.resume-card-label {
+  font-weight: 600;
+  font-size: 0.98rem;
+}
+
+.resume-card-sub {
+  font-size: 0.76rem;
+  color: var(--text-faint);
+}
+
+.resume-card-dl {
+  color: var(--text-faint);
+  flex-shrink: 0;
+}
+
+@media (max-width: 860px) {
+  .resume-grid {
+    grid-template-columns: 1fr;
+  }
+}
