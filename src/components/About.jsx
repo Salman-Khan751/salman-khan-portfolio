@@ -48,8 +48,8 @@ export default function About() {
           >
             <p>
               I graduated with a Bachelor of Science in Artificial Intelligence from PMAS Arid Agriculture
-              University, Rawalpindi, and currently work as a AI Engineer at the Barani Institute of
-              Information Technology, where I build AI systems that ship — not just train.
+              University, Rawalpindi, and currently work as a AI Engineer at the Biit,
+              where I build AI systems that ship — not just train.
             </p>
             <p>
               My recent work spans telecom call-intent and emotion detection, real-time vehicle detection for toll

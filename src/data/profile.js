@@ -29,7 +29,7 @@ export const PERSON = {
 
 export const RESUMES = [
   { key: "ai", label: "AI Engineer", file: "/resumes/Salman_Khan_AI_Engineer.pdf" },
-  { key: "mern", label: "MERN Stack Developer", file: "/resumes/Salman_Khan_MERN_Stack_Developer.pdf" },
+  { key: "mern", label: "Full Stack Developer ( MERN )", file: "/resumes/Salman_Khan_Full_Stack_Developer.pdf" },
   { key: "swe", label: "Software Engineer", file: "/resumes/Salman_Khan_Software_Engineer.pdf" },
 ];
 
@@ -111,7 +111,7 @@ export const SKILL_GROUPS = [
 
 export const EXPERIENCE = [
   {
-    org: "Barani Institute of Information Technology (BIIT)",
+    org: "Biit",
     period: "Jul 2025 – Present ",
     roles: [ "AI Engineer", "Full-Stack Developer", "Software Engineer"],
     items: [
