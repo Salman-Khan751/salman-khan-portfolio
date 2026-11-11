@@ -1,0 +1,124 @@
+.exp-timeline {
+  margin-top: 48px;
+}
+
+.exp-job-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+  padding-bottom: 22px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 36px;
+  flex-wrap: wrap;
+}
+
+.exp-job-header h3 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.exp-roles {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.exp-period {
+  color: var(--text-faint);
+  font-size: 0.88rem;
+  white-space: nowrap;
+}
+
+.exp-items {
+  position: relative;
+  padding-left: 26px;
+  border-left: 1px solid var(--border);
+}
+
+.exp-item {
+  position: relative;
+  padding-bottom: 40px;
+  transition: transform 0.2s var(--ease-out);
+}
+
+.exp-item:hover {
+  transform: translateX(4px);
+}
+
+.exp-item:last-child {
+  padding-bottom: 0;
+}
+
+.exp-item-dot {
+  position: absolute;
+  left: -31px;
+  top: 6px;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: var(--bg);
+  border: 2px solid var(--accent);
+}
+
+.exp-item-body h4 {
+  font-size: 1.08rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.exp-item-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.exp-item-tech span {
+  font-size: 0.78rem;
+  color: var(--accent2);
+  background: var(--accent2-soft);
+  border: 1px solid var(--accent2-dim);
+  padding: 3px 10px;
+  border-radius: 100px;
+  opacity: 0.9;
+}
+
+.exp-item-points {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  color: var(--text-dim);
+  font-size: 0.96rem;
+  line-height: 1.65;
+}
+
+.exp-item-points li {
+  list-style: none;
+  position: relative;
+  padding-left: 18px;
+}
+
+.exp-item-points li::before {
+  content: "→";
+  position: absolute;
+  left: 0;
+  color: var(--accent-dim);
+}
+
+.exp-footnote {
+  margin-top: 32px;
+  color: var(--text-faint);
+  font-size: 0.88rem;
+  font-style: italic;
+}
+
+@media (max-width: 640px) {
+  .exp-items {
+    padding-left: 20px;
+  }
+  .exp-item-dot {
+    left: -25px;
+  }
+}

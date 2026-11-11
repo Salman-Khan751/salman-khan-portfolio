@@ -1,0 +1,240 @@
+@import "tailwindcss";
+
+/* Theme is driven by <html data-theme="dark|light">, set before first paint by an inline script in layout.tsx. */
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-bg-soft: var(--bg-soft);
+  --color-surface: var(--surface);
+  --color-surface-hi: var(--surface-hi);
+  --color-line: var(--line);
+  --color-line-hi: var(--line-hi);
+  --color-fg: var(--fg);
+  --color-fg-dim: var(--fg-dim);
+  --color-fg-faint: var(--fg-faint);
+  --color-accent: var(--accent);
+  --color-accent-solid: var(--accent-solid);
+  --color-accent-solid-hover: var(--accent-solid-hover);
+  --color-accent-soft: var(--accent-soft);
+  --color-accent-text: var(--accent-text);
+  --color-amber: var(--amber);
+  --color-amber-soft: var(--amber-soft);
+  --color-glow: var(--glow);
+  --color-danger: var(--danger);
+  --color-success: var(--success);
+
+  --font-display: var(--font-space-grotesk), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains-mono), ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+
+  --animate-orbit: orbit 32s linear infinite;
+  --animate-orbit-reverse: orbit 46s linear infinite reverse;
+  --animate-float: float 7s ease-in-out infinite;
+  --animate-shimmer: shimmer 1.6s ease-in-out infinite;
+  --animate-blink: blink 1s steps(2, start) infinite;
+
+  @keyframes orbit {
+    to { transform: rotate(360deg); }
+  }
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-7px); }
+  }
+  @keyframes shimmer {
+    0%, 100% { opacity: 0.45; }
+    50% { opacity: 0.9; }
+  }
+  @keyframes blink {
+    to { visibility: hidden; }
+  }
+}
+
+/* ---------- Design tokens: dark (default) ---------- */
+:root {
+  color-scheme: dark;
+  --bg: #08090f;
+  --bg-soft: #0c0e17;
+  --surface: #11131e;
+  --surface-hi: #171a28;
+  --line: #232739;
+  --line-hi: #343a56;
+  --fg: #f1f2f7;
+  --fg-dim: #a9aec4;
+  --fg-faint: #8189a3;
+  --accent: #7c6cf6;
+  --accent-text: #a79dfa;
+  --accent-solid: #6a59ee;
+  --accent-solid-hover: #5b49e0;
+  --accent-soft: rgba(124, 108, 246, 0.12);
+  --amber: #f5a524;
+  --amber-soft: rgba(245, 165, 36, 0.12);
+  --glow: rgba(124, 108, 246, 0.35);
+  --logo-glow: rgba(56, 168, 255, 0.28);
+  --danger: #f0707a;
+  --success: #3fc38a;
+}
+
+:root[data-theme="light"] {
+  color-scheme: light;
+  --bg: #fbfaf8;
+  --bg-soft: #f3f1ec;
+  --surface: #ffffff;
+  --surface-hi: #f6f4ee;
+  --line: #e6e2d8;
+  --line-hi: #d2cdbd;
+  --fg: #1b1a17;
+  --fg-dim: #54523f;
+  --fg-faint: #6f6b59;
+  --accent: #5b49e0;
+  --accent-text: #4f3dc4;
+  --accent-solid: #5b49e0;
+  --accent-solid-hover: #4a39c4;
+  --accent-soft: rgba(91, 73, 224, 0.08);
+  --amber: #a85200;
+  --amber-soft: rgba(184, 92, 6, 0.09);
+  --glow: rgba(91, 73, 224, 0.22);
+  --logo-glow: rgba(35, 130, 220, 0.16);
+  --danger: #c62f3b;
+  --success: #17803d;
+}
+
+/* ---------- Base ---------- */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5.5rem;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: clip;
+  transition: background-color 0.35s var(--ease-out-expo), color 0.35s var(--ease-out-expo);
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+
+p { text-wrap: pretty; }
+
+::selection { background: var(--accent-solid); color: #fff; }
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--line-hi); border-radius: 10px; }
+::-webkit-scrollbar-thumb:hover { background: var(--accent-solid); }
+
+/* ---------- Reduced motion: honour the OS setting everywhere ---------- */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ---------- Effects that need real CSS ---------- */
+
+/* Hero background grid, faded out toward the edges */
+.hero-grid {
+  background-image:
+    linear-gradient(var(--line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--line) 1px, transparent 1px);
+  background-size: 56px 56px;
+  -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 30%, #000 0%, transparent 75%);
+  mask-image: radial-gradient(ellipse 70% 60% at 50% 30%, #000 0%, transparent 75%);
+  opacity: 0.55;
+}
+
+/* Cursor spotlight on cards. --mx / --my are set by <SpotlightCard>. */
+.spotlight { position: relative; isolation: isolate; }
+.spotlight::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  opacity: 0;
+  transition: opacity 0.3s var(--ease-out-expo);
+  background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 50%), var(--accent-soft), transparent 65%);
+  pointer-events: none;
+}
+.spotlight:hover::before { opacity: 1; }
+@media (hover: none) { .spotlight::before { display: none; } }
+
+/* Sheen that sweeps across primary buttons on hover */
+.btn-sheen { position: relative; overflow: hidden; }
+.btn-sheen::after {
+  content: "";
+  position: absolute;
+  inset-block: 0;
+  left: -70%;
+  width: 50%;
+  background: linear-gradient(110deg, transparent, rgba(255, 255, 255, 0.28), transparent);
+  transform: skewX(-18deg);
+  transition: left 0.7s var(--ease-out-expo);
+  pointer-events: none;
+}
+.btn-sheen:hover::after { left: 130%; }
+
+/* Intro loader. Pure CSS so it needs no JS and always clears itself. */
+.page-loader {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: grid;
+  place-items: center;
+  background: var(--bg);
+  animation: loader-out 0.5s var(--ease-out-expo) 0.75s forwards;
+}
+.page-loader__mark { animation: loader-in 0.5s var(--ease-out-expo) both; }
+.page-loader__bar {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  width: 100%;
+  background: var(--accent);
+  transform-origin: left;
+  animation: loader-bar 0.75s var(--ease-out-expo) both;
+}
+@keyframes loader-in { from { opacity: 0; transform: scale(0.9); } }
+@keyframes loader-bar { from { transform: scaleX(0); } }
+@keyframes loader-out { to { opacity: 0; visibility: hidden; } }
+@media (prefers-reduced-motion: reduce) {
+  .page-loader { display: none; }
+}
+
+/* Visible, spaced-out skip link for keyboard users */
+.skip-link {
+  position: fixed;
+  left: 1rem;
+  top: -4rem;
+  z-index: 200;
+  padding: 0.6rem 1rem;
+  border-radius: 10px;
+  background: var(--accent-solid);
+  color: #fff;
+  font-weight: 600;
+  transition: top 0.2s var(--ease-out-expo);
+}
+.skip-link:focus { top: 1rem; }
