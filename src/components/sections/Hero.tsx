@@ -101,7 +101,7 @@ function Emblem() {
 export function Hero() {
   const reduce = useReducedMotion();
   // Start the entrance as the intro loader fades out (loader is skipped for reduced motion).
-  const base = reduce ? 0 : 0.7;
+   const base = reduce ? 0 : 0.2;
 
   const container = { hidden: {}, show: { transition: { staggerChildren: 0.09, delayChildren: base } } };
   const item = { hidden: { opacity: 0, y: 14 }, show: { opacity: 1, y: 0, transition: { duration: 0.65, ease: EASE_OUT } } };

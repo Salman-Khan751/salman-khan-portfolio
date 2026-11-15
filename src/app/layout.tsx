@@ -56,10 +56,7 @@ export const metadata: Metadata = {
   openGraph: { type: "website", url: "/", siteName: PERSON.name, title: TITLE, description: DESCRIPTION, locale: "en_US" },
   twitter: { card: "summary_large_image", title: TITLE, description: DESCRIPTION },
   icons: {
-    icon: [
-      { url: "/favicon.svg", type: "image/svg+xml" },
-      { url: "/favicon-32.png", sizes: "32x32", type: "image/png" },
-    ],
+    icon: [{ url: "/favicon-32.png", sizes: "32x32", type: "image/png" }],
     apple: "/apple-touch-icon.png",
   },
   robots: { index: true, follow: true },

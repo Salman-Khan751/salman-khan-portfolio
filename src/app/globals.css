@@ -204,9 +204,9 @@ p { text-wrap: pretty; }
   display: grid;
   place-items: center;
   background: var(--bg);
-  animation: loader-out 0.5s var(--ease-out-expo) 0.75s forwards;
+  animation: loader-out 0.25s var(--ease-out-expo) 0.2s forwards;
 }
-.page-loader__mark { animation: loader-in 0.5s var(--ease-out-expo) both; }
+.page-loader__mark { animation: loader-in 0.25s var(--ease-out-expo) both; }
 .page-loader__bar {
   position: absolute;
   left: 0;
@@ -215,7 +215,7 @@ p { text-wrap: pretty; }
   width: 100%;
   background: var(--accent);
   transform-origin: left;
-  animation: loader-bar 0.75s var(--ease-out-expo) both;
+  animation: loader-bar 0.2s var(--ease-out-expo) both;
 }
 @keyframes loader-in { from { opacity: 0; transform: scale(0.9); } }
 @keyframes loader-bar { from { transform: scaleX(0); } }

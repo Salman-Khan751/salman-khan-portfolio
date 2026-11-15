@@ -24,6 +24,7 @@ export async function getTopRepos(limit = 6): Promise<Repo[] | null> {
         Accept: "application/vnd.github+json",
         ...(process.env.GITHUB_TOKEN ? { Authorization: `Bearer ${process.env.GITHUB_TOKEN}` } : {}),
       },
+      signal: AbortSignal.timeout(4000),
       next: { revalidate: 3600 },
     });
     if (!res.ok) return null;
